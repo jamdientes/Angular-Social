@@ -1,0 +1,32 @@
+
+<div class="box">
+  <h3>Upload Cover Photo</h3>
+
+  <label>
+    <input type="file" class="button" (change)="detectFiles($event)">
+  </label>
+  <button class="button is-primary"
+    [disabled]="!selectedFiles"
+    (click)="uploadSingle()">
+    Upload Single
+  </button>
+
+  <hr>
+
+  
+</div>
+<h1>Create Post</h1>
+<p></p>
+
+<input [(ngModel)]="content" placeholder="Add your own note" class="input">
+
+
+<button class="button is-success" (click)="createNote()" [disabled]="content?.length < 2 || content?.length > 200">
+  Add Post
+</button>
+<hr>
+<div *ngFor="let note of notes | async">
+  <note-detail [note]="note"></note-detail>
+</div>
+
+

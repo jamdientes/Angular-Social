@@ -1,0 +1,15 @@
+<div>
+  <h3>{{ note.content }}</h3>
+  <span class="button is-small is-info" (click)='addHeartToNote(note.hearts)'>
+    Heart <i class="fa fa-heart"></i>
+  </span>
+  <span class="button is-small is-danger" (click)='deleteNote(note?.id)'>Delete</span>
+ 
+  <p>This note has been hearted {{ note.hearts || 0 }} times.</p>
+
+  <div *ngIf="currentUpload">
+    <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
+    Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+  </div>
+  
+</div>
